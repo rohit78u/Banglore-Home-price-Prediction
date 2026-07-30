@@ -2,9 +2,9 @@
 
 ---
 
-# 🏡 Bangalore Home Price Prediction
+# NEST — Bengaluru Property Intelligence
 
-This project predicts house prices in Bengaluru based on features such as **location**, **BHK**, **bathrooms**, and **square footage** using **Machine Learning models**. It includes data preprocessing, model training, evaluation, and a **Streamlit web app** for real-time predictions.
+NEST is a Streamlit application that estimates Bengaluru home prices from **location**, **BHK**, **bathrooms**, and **square footage**. It pairs a trained machine-learning model with interactive market analytics.
 
 🔗 **Live Demo:** [Bangalore Home Price Prediction App](https://bangalorehomepriceproject-hdgdndyjrfrxkd3gnnn5ac.streamlit.app/)
 
@@ -44,6 +44,14 @@ It demonstrates **end-to-end Machine Learning workflow**, including:
 
 ---
 
+## Production highlights
+
+* Cached, validated loading of the model, feature schema, and market data.
+* Defensive data cleaning for area ranges and incomplete source records.
+* Clear error states when a required model artifact or data asset is unavailable.
+* Responsive, high-contrast visual interface with accessible labels and interactive charts.
+* Informational valuation disclaimer to avoid presenting estimates as formal appraisals.
+
 ## 💻 Technologies Used
 
 * **Language:** Python
@@ -61,10 +69,10 @@ It demonstrates **end-to-end Machine Learning workflow**, including:
    git clone https://github.com/your-username/bangalore-home-price.git
    cd bangalore-home-price
    ```
-2. Install dependencies
+2. Create and activate a virtual environment (recommended), then install dependencies
 
    ```bash
-   pip install -r requirements.txt
+   python -m pip install -r requirements.txt
    ```
 3. Run Streamlit app
 
