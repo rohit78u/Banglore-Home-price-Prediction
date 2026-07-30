@@ -13,9 +13,9 @@ import streamlit as st
 
 
 APP_DIR = Path(__file__).resolve().parent
-MODEL_PATH = APP_DIR / "notebooks" / "banglore_home_prices_model.pickle"
-COLUMNS_PATH = APP_DIR / "notebooks" / "columns.json"
-DATA_PATH = APP_DIR / "data" / "Bengaluru_House_Data.csv"
+MODEL_PATH = APP_DIR / "models" / "bangalore_home_prices_model.pkl"
+COLUMNS_PATH = APP_DIR / "models" / "feature_columns.json"
+DATA_PATH = APP_DIR / "data" / "raw" / "bengaluru_housing.csv"
 
 st.set_page_config(
     page_title="NEST — Bengaluru Property Intelligence",
@@ -59,7 +59,7 @@ def inject_styles() -> None:
 def load_model_assets() -> tuple[object, list[str]]:
     """Load and validate the trained estimator and its expected feature order."""
     if not MODEL_PATH.exists() or not COLUMNS_PATH.exists():
-        raise FileNotFoundError("Model artifacts are missing. Expected files in notebooks/.")
+        raise FileNotFoundError("Model artifacts are missing. Expected files in models/.")
     with MODEL_PATH.open("rb") as model_file:
         model = pickle.load(model_file)
     with COLUMNS_PATH.open(encoding="utf-8") as columns_file:
@@ -91,7 +91,7 @@ def parse_sqft(value: object) -> float | None:
 def load_market_data() -> pd.DataFrame:
     """Load a compact, clean data frame used by the insight visualizations."""
     if not DATA_PATH.exists():
-        raise FileNotFoundError("Market data file is missing from data/.")
+        raise FileNotFoundError("Market data file is missing from data/raw/.")
     raw = pd.read_csv(DATA_PATH)
     required = {"location", "size", "total_sqft", "bath", "price"}
     missing = required.difference(raw.columns)

@@ -80,6 +80,20 @@ It demonstrates **end-to-end Machine Learning workflow**, including:
    streamlit run app.py
    ```
 
+## 📁 Project Structure
+
+```text
+.
+├── app.py                  # Streamlit application entry point
+├── data/
+│   └── raw/                # Source Bengaluru housing dataset
+├── models/                 # Trained model and feature schema
+├── notebooks/              # Training and exploratory analysis work
+├── .streamlit/             # Streamlit deployment configuration
+├── requirements.txt        # Application dependencies
+└── README.md
+```
+
 ---
 
 ## 📊 Result
